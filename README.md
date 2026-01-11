@@ -97,7 +97,7 @@ The goal is to communicate **maturity, clarity, and engineering depth**.
 ├── README.md
 └── package.json
 
----
+```
 
 ## 🚀 Featured Projects
 
