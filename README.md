@@ -11,7 +11,7 @@ by modern design studios rather than typical student portfolios.
 ---
 
 ## ✨ Live Preview
-> roshni.lovable.app
+[roshni.lovable.app](https://roshni.lovable.app)
 
 ---
 
