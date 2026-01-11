@@ -11,8 +11,7 @@ by modern design studios rather than typical student portfolios.
 ---
 
 ## ✨ Live Preview
-> (Add your deployed link here once live)  
-Example: https://roshnihembrom.vercel.app
+> roshni.lovable.app
 
 ---
 
