@@ -1,73 +1,227 @@
-# Welcome to your Lovable project
+# Roshni Hembrom — Professional Portfolio Website
 
-## Project info
+A studio-grade, dark-editorial personal portfolio website built to showcase my
+background in **Computer Science & Engineering**, **AI-driven projects**, and
+**full-stack development**, with a strong focus on **clarity, aesthetics, and
+interview readiness**.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+This portfolio is designed to feel calm, confident, and intentional — inspired
+by modern design studios rather than typical student portfolios.
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## ✨ Live Preview
+> (Add your deployed link here once live)  
+Example: https://roshnihembrom.vercel.app
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## 🧠 Purpose & Vision
 
-Changes made via Lovable will be committed automatically to this repo.
+This portfolio serves as:
+- A **professional identity** for recruiters and interviewers
+- A **case-study driven showcase** of my projects
+- A **design-aware engineering portfolio** inspired by editorial studios
+- A **conversation guide** during interviews (problem → approach → impact)
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🧩 Key Features
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- 🌑 **Dark editorial UI** (charcoal, clay & muted tones)
+- 🎞️ **Smooth Framer Motion animations** with cinematic easing
+- 🧠 **Interview-ready project storytelling**
+- 🖼️ **Minimal personal branding (RH monogram & favicon)**
+- 📱 Fully responsive (mobile-first)
+- ⚡ Performance-optimized and deployment-ready
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 🎨 Design Philosophy
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+- Inspired by modern studio websites (e.g. Dogstudio-style aesthetics)
+- Typography-first layout
+- Generous whitespace
+- Subtle motion, no gimmicks
+- No neon colors, no flashy gradients, no over-animation
 
-# Step 3: Install the necessary dependencies.
-npm i
+The goal is to communicate **maturity, clarity, and engineering depth**.
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+---
+
+## 🛠️ Tech Stack
+
+**Frontend**
+- React.js
+- TailwindCSS
+- Framer Motion
+
+**Design & Prototyping**
+- Figma
+- Canva
+
+**Deployment**
+- Vercel / Netlify
+
+---
+
+## 📁 Project Structure
+
+```bash
+├── public/
+│   ├── favicon.ico
+│   └── assets/
+│       └── images/
+│
+├── src/
+│   ├── components/
+│   │   ├── Navbar.jsx
+│   │   ├── Hero.jsx
+│   │   ├── About.jsx
+│   │   ├── Projects.jsx
+│   │   ├── Skills.jsx
+│   │   ├── Education.jsx
+│   │   ├── Contact.jsx
+│   │   └── Footer.jsx
+│   │
+│   ├── animations/
+│   │   └── motionVariants.js
+│   │
+│   ├── pages/
+│   │   └── Home.jsx
+│   │
+│   ├── styles/
+│   │   └── globals.css
+│   │
+│   └── App.jsx
+│
+├── README.md
+└── package.json
+
+---
+
+## 🚀 Featured Projects
+
+### 🔹 Savitr-AI — Dynamic Delivery Solution
+AI-based delivery scheduling system optimizing logistics using:
+- Traffic conditions  
+- Weather data  
+- User preferences  
+
+**Key Highlights**
+- Personalized delivery time slots  
+- SMS-based rescheduling  
+- AI-driven route optimization  
+- Focus on reducing missed deliveries & improving KPIs  
+
+---
+
+### 🔹 Weather App
+Responsive weather application with:
+- Real-time weather data  
+- 5-day forecasts  
+- Dynamic UI based on weather conditions  
+
+**Tech Stack:**  
+React.js, TailwindCSS, OpenWeatherMap API  
+
+---
+
+### 🔹 Calculator Web App
+Clean, responsive calculator focused on:
+- Correct state management  
+- Simple, intuitive UI  
+- Core arithmetic operations  
+
+**Tech Stack:**  
+HTML, CSS, JavaScript  
+
+---
+
+## 🧠 Skills Overview
+
+### Analytics & AI
+- Power BI  
+- Google Vertex AI  
+
+### Programming
+- Python  
+- SQL  
+- Java  
+- JavaScript  
+
+### Web Development
+- React.js  
+- TailwindCSS  
+
+### Core Computer Science
+- DSA  
+- DBMS  
+- OS  
+- OOP  
+
+### Tools
+- Figma  
+- Canva  
+- ChatGPT  
+- Claude  
+
+---
+
+## 🏆 Achievements
+
+- 🥇 **Best Paper Award — ICSAA 2025**  
+  *“Sustainable AI and Its Applications”*
+
+- 🏅 **Outstanding Paper Award — Ideathon 2025**  
+  Inter-Department Research Contest  
+
+---
+
+## 📦 Installation & Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/your-username/portfolio.git
+
+# Navigate to the project
+cd portfolio
+
+# Install dependencies
+npm install
+
+# Run locally
 npm run dev
-```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 🌐 Deployment
 
-**Use GitHub Codespaces**
+This project is deployment-ready for the following platforms:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- **Vercel**
+- **Netlify**
 
-## What technologies are used for this project?
+Simply connect the repository to your preferred platform and deploy.
 
-This project is built with:
+---
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 📬 Contact
 
-## How can I deploy this project?
+**Roshni Hembrom**  
+📍 Murshidabad, India  
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+- **Email:** hembromramo145@gmail.com  
+- **LinkedIn:** *(add link)*  
+- **GitHub:** *(add link)*  
 
-## Can I connect a custom domain to my Lovable project?
+---
 
-Yes, you can!
+## 📝 License
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+This project is open for inspiration and learning purposes.  
+Please do not directly copy the design or content without permission.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+---
+
+> *“Designing intelligent systems where data, AI, and engineering converge.”*
