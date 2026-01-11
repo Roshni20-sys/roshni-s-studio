@@ -192,8 +192,8 @@ npm install
 # Run locally
 npm run dev
 
----
 ```
+
 ## 🌐 Deployment
 
 This project is deployment-ready for the following platforms:
