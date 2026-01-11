@@ -193,7 +193,7 @@ npm install
 npm run dev
 
 ---
-
+```
 ## 🌐 Deployment
 
 This project is deployment-ready for the following platforms:
