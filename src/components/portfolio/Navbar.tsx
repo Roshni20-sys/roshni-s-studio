@@ -101,7 +101,14 @@ const Navbar = () => {
                   href={link.href}
                   custom={i}
                   variants={linkVariants}
-                  onClick={() => setIsOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsOpen(false);
+                    const target = document.querySelector(link.href);
+                    if (target) {
+                      target.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
                   className="font-serif text-4xl md:text-6xl text-foreground hover:text-primary transition-colors duration-300 underline-animation"
                 >
                   {link.name}
