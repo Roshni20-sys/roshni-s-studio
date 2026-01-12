@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Download } from "lucide-react";
 import roshniPhoto from "@/assets/roshni-photo.jpeg";
+import FloatingParticles from "./FloatingParticles";
 
 const Hero = () => {
   const containerVariants = {
@@ -27,7 +28,10 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden grain-overlay">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Floating particles background */}
+      <FloatingParticles />
+      
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-card opacity-50" />
       
@@ -76,6 +80,10 @@ const Hero = () => {
             >
               <a
                 href="#projects"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
+                }}
                 className="group inline-flex items-center gap-3 text-foreground hover:text-primary transition-colors duration-300"
               >
                 <span className="underline-animation">View Work</span>
@@ -90,6 +98,10 @@ const Hero = () => {
               </a>
               <a
                 href="#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
+                }}
                 className="text-muted-foreground hover:text-foreground transition-colors duration-300 underline-animation"
               >
                 Get in Touch
