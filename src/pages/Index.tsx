@@ -8,21 +8,27 @@ import Education from "@/components/portfolio/Education";
 import Achievements from "@/components/portfolio/Achievements";
 import Contact from "@/components/portfolio/Contact";
 import ScrollToTop from "@/components/portfolio/ScrollToTop";
+import CursorFollower from "@/components/portfolio/CursorFollower";
+import Preloader from "@/components/portfolio/Preloader";
 
 const Index = () => {
   return (
-    <main className="bg-background text-foreground overflow-x-hidden">
-      <Navbar />
-      <Hero />
-      <About />
-      <Experience />
-      <Projects />
-      <Skills />
-      <Education />
-      <Achievements />
-      <Contact />
-      <ScrollToTop />
-    </main>
+    <>
+      <Preloader />
+      <CursorFollower />
+      <main className="bg-background text-foreground overflow-x-hidden cursor-none md:cursor-none">
+        <Navbar />
+        <Hero />
+        <About />
+        <Experience />
+        <Projects />
+        <Skills />
+        <Education />
+        <Achievements />
+        <Contact />
+        <ScrollToTop />
+      </main>
+    </>
   );
 };
 
