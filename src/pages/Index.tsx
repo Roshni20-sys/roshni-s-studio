@@ -7,6 +7,7 @@ import Skills from "@/components/portfolio/Skills";
 import Education from "@/components/portfolio/Education";
 import Achievements from "@/components/portfolio/Achievements";
 import Contact from "@/components/portfolio/Contact";
+import ScrollToTop from "@/components/portfolio/ScrollToTop";
 
 const Index = () => {
   return (
@@ -20,6 +21,7 @@ const Index = () => {
       <Education />
       <Achievements />
       <Contact />
+      <ScrollToTop />
     </main>
   );
 };

@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { Download } from "lucide-react";
+import roshniPhoto from "@/assets/roshni-photo.jpeg";
 
 const Hero = () => {
   const containerVariants = {
@@ -70,7 +72,7 @@ const Hero = () => {
 
             <motion.div
               variants={itemVariants}
-              className="mt-12 flex gap-6"
+              className="mt-12 flex flex-wrap gap-6"
             >
               <a
                 href="#projects"
@@ -92,6 +94,14 @@ const Hero = () => {
               >
                 Get in Touch
               </a>
+              <a
+                href="/resume.pdf"
+                download
+                className="group inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 rounded"
+              >
+                <Download className="w-4 h-4" />
+                <span>Download Resume</span>
+              </a>
             </motion.div>
           </motion.div>
 
@@ -107,27 +117,19 @@ const Hero = () => {
               <div className="absolute -inset-4 border border-border/30 -z-10" />
               <div className="absolute -inset-8 border border-border/20 -z-20" />
               
-              {/* Placeholder image */}
-              <div className="w-full h-full bg-gradient-to-br from-card via-muted to-card flex items-center justify-center relative overflow-hidden">
-                {/* Stylized placeholder content */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <div className="w-24 h-24 rounded-full bg-primary/20 mb-4" />
-                  <div className="w-32 h-3 bg-muted-foreground/20 rounded mb-2" />
-                  <div className="w-24 h-3 bg-muted-foreground/10 rounded" />
-                </div>
+              {/* Actual photo */}
+              <div className="w-full h-full relative overflow-hidden">
+                <img
+                  src={roshniPhoto}
+                  alt="Roshni Hembrom"
+                  className="w-full h-full object-cover object-center grayscale-[20%] contrast-[1.05]"
+                />
                 
-                {/* Overlay text */}
-                <div className="absolute bottom-6 left-6 right-6 text-center">
-                  <p className="text-muted-foreground text-xs uppercase tracking-widest">
-                    Portrait placeholder
-                  </p>
-                  <p className="text-muted-foreground/60 text-xs mt-1">
-                    Replace with your photo
-                  </p>
-                </div>
-
+                {/* Subtle overlay for depth */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
+                
                 {/* Corner accent */}
-                <div className="absolute top-0 right-0 w-16 h-16 bg-primary/10" />
+                <div className="absolute top-0 right-0 w-16 h-16 bg-primary/20" />
               </div>
             </div>
           </motion.div>
