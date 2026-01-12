@@ -112,24 +112,30 @@ const Hero = () => {
             transition={{ duration: 1, delay: 0.5, ease: [0.4, 0, 0.2, 1] }}
             className="order-1 lg:order-2 relative"
           >
-            <div className="relative aspect-[3/4] max-w-md mx-auto lg:ml-auto">
-              {/* Decorative frame */}
-              <div className="absolute -inset-4 border border-border/30 -z-10" />
-              <div className="absolute -inset-8 border border-border/20 -z-20" />
+            <div className="relative aspect-[3/4] max-w-md mx-auto lg:ml-auto group cursor-pointer">
+              {/* Decorative frame with hover animation */}
+              <div className="absolute -inset-4 border border-border/30 -z-10 transition-all duration-500 group-hover:border-primary/40 group-hover:-inset-5" />
+              <div className="absolute -inset-8 border border-border/20 -z-20 transition-all duration-700 group-hover:border-primary/20 group-hover:-inset-10" />
               
-              {/* Actual photo */}
+              {/* Actual photo with grayscale-to-color effect */}
               <div className="w-full h-full relative overflow-hidden">
                 <img
                   src={roshniPhoto}
                   alt="Roshni Hembrom"
-                  className="w-full h-full object-cover object-center grayscale-[20%] contrast-[1.05]"
+                  className="w-full h-full object-cover object-center grayscale contrast-[1.05] transition-all duration-700 ease-out group-hover:grayscale-0 group-hover:scale-105"
                 />
                 
-                {/* Subtle overlay for depth */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
+                {/* Subtle overlay for depth - fades on hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent transition-opacity duration-500 group-hover:opacity-60" />
                 
-                {/* Corner accent */}
-                <div className="absolute top-0 right-0 w-16 h-16 bg-primary/20" />
+                {/* Primary color wash overlay - reveals on hover */}
+                <div className="absolute inset-0 bg-primary/0 mix-blend-overlay transition-all duration-500 group-hover:bg-primary/10" />
+                
+                {/* Corner accent with animation */}
+                <div className="absolute top-0 right-0 w-16 h-16 bg-primary/20 transition-all duration-500 group-hover:w-20 group-hover:h-20 group-hover:bg-primary/30" />
+                
+                {/* Bottom left corner accent - appears on hover */}
+                <div className="absolute bottom-0 left-0 w-0 h-0 bg-primary/20 transition-all duration-500 group-hover:w-12 group-hover:h-12" />
               </div>
             </div>
           </motion.div>
