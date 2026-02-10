@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
   { name: "About", href: "#about" },
@@ -58,8 +59,10 @@ const Navbar = () => {
             RH
           </a>
 
-          {/* Hamburger Button */}
-          <button
+          <div className="flex items-center gap-3">
+            <ThemeToggle />
+            {/* Hamburger Button */}
+            <button
             onClick={toggleMenu}
             className="relative z-50 w-10 h-10 flex flex-col items-center justify-center gap-1.5 group"
             aria-label="Toggle menu"
@@ -79,7 +82,8 @@ const Navbar = () => {
               transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
               className="w-6 h-0.5 bg-foreground group-hover:bg-primary transition-colors duration-300"
             />
-          </button>
+            </button>
+          </div>
         </div>
       </nav>
 

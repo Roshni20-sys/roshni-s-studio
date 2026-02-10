@@ -11,24 +11,73 @@
 
 @layer base {
   :root {
-    /* Dark Editorial Palette */
-    --background: 0 0% 5.5%;           /* Near-black charcoal #0E0E0E */
-    --foreground: 38 14% 91%;          /* Warm off-white #EDEAE6 */
+    /* Light Editorial Palette */
+    --background: 40 20% 96%;             /* Warm cream #F5F2ED */
+    --foreground: 0 0% 10%;               /* Near-black #1A1A1A */
 
-    --card: 0 0% 8.6%;                 /* Soft graphite #161616 */
+    --card: 40 18% 92%;                   /* Soft warm gray #EDE9E3 */
+    --card-foreground: 0 0% 10%;
+
+    --popover: 40 18% 92%;
+    --popover-foreground: 0 0% 10%;
+
+    --primary: 17 42% 42%;                /* Darker terracotta for contrast #994F38 */
+    --primary-foreground: 40 20% 96%;
+
+    --secondary: 153 10% 40%;             /* Deeper sage #5C7068 */
+    --secondary-foreground: 40 20% 96%;
+
+    --muted: 40 12% 88%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 17 42% 42%;
+    --accent-foreground: 40 20% 96%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 40 20% 96%;
+
+    --border: 40 10% 82%;
+    --input: 40 10% 82%;
+    --ring: 17 42% 42%;
+
+    --radius: 0.5rem;
+
+    --surface: 40 18% 92%;
+    --surface-hover: 40 12% 88%;
+    --text-primary: 0 0% 10%;
+    --text-secondary: 0 0% 40%;
+    --accent-sage: 153 10% 40%;
+    --accent-clay: 17 42% 42%;
+
+    --sidebar-background: 40 20% 96%;
+    --sidebar-foreground: 0 0% 10%;
+    --sidebar-primary: 17 42% 42%;
+    --sidebar-primary-foreground: 40 20% 96%;
+    --sidebar-accent: 40 12% 88%;
+    --sidebar-accent-foreground: 0 0% 10%;
+    --sidebar-border: 40 10% 82%;
+    --sidebar-ring: 17 42% 42%;
+  }
+
+  .dark {
+    /* Dark Editorial Palette */
+    --background: 0 0% 5.5%;
+    --foreground: 38 14% 91%;
+
+    --card: 0 0% 8.6%;
     --card-foreground: 38 14% 91%;
 
     --popover: 0 0% 8.6%;
     --popover-foreground: 38 14% 91%;
 
-    --primary: 17 42% 49%;             /* Burnt clay/terracotta #B0654A */
+    --primary: 17 42% 49%;
     --primary-foreground: 38 14% 91%;
 
-    --secondary: 153 8% 53%;           /* Muted sage #7E8F88 */
+    --secondary: 153 8% 53%;
     --secondary-foreground: 38 14% 91%;
 
     --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 65%;      /* Muted gray #A6A6A6 */
+    --muted-foreground: 0 0% 65%;
 
     --accent: 17 42% 49%;
     --accent-foreground: 38 14% 91%;
@@ -40,9 +89,6 @@
     --input: 0 0% 18%;
     --ring: 17 42% 49%;
 
-    --radius: 0.5rem;
-
-    /* Custom tokens */
     --surface: 0 0% 8.6%;
     --surface-hover: 0 0% 12%;
     --text-primary: 38 14% 91%;
@@ -50,7 +96,6 @@
     --accent-sage: 153 8% 53%;
     --accent-clay: 17 42% 49%;
 
-    /* Sidebar (inherited from shadcn) */
     --sidebar-background: 0 0% 5.5%;
     --sidebar-foreground: 38 14% 91%;
     --sidebar-primary: 17 42% 49%;
