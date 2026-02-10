@@ -109,7 +109,7 @@ const Navbar = () => {
                       target.scrollIntoView({ behavior: "smooth" });
                     }
                   }}
-                  className="font-serif text-4xl md:text-6xl text-foreground hover:text-primary transition-colors duration-300 underline-animation"
+                  className="font-serif text-2xl md:text-3xl text-foreground hover:text-primary transition-colors duration-300 underline-animation"
                 >
                   {link.name}
                 </motion.a>
