@@ -41,7 +41,7 @@ const Education = () => {
             </p>
             <div className="inline-flex items-center gap-3 bg-card border border-border/50 px-6 py-3">
               <span className="text-muted-foreground text-sm uppercase tracking-[0.15em]">
-                SGPA
+                CGPA
               </span>
               <span className="text-foreground text-2xl font-serif">
                 7.34<span className="text-muted-foreground text-lg"> / 10</span>
@@ -69,21 +69,21 @@ const Education = () => {
           >
             <div className="text-muted-foreground">
               <p className="text-xs uppercase tracking-[0.2em] mb-2">
-                Higher Secondary
+                Higher Secondary (WBCHSE)
               </p>
               <p className="text-foreground/70 mb-1">
                 Kandi Raja M. C. Girls High School
               </p>
-              <p className="text-sm">70%</p>
+              <p className="text-sm">70% • 2020–2022</p>
             </div>
             <div className="text-muted-foreground">
               <p className="text-xs uppercase tracking-[0.2em] mb-2">
-                Secondary
+                Secondary (WBBSE)
               </p>
               <p className="text-foreground/70 mb-1">
                 Kandi Raja M. C. Girls High School
               </p>
-              <p className="text-sm">83%</p>
+              <p className="text-sm">83% • 2015–2020</p>
             </div>
           </motion.div>
         </div>

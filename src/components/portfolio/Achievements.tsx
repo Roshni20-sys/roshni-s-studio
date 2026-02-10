@@ -10,6 +10,16 @@ interface Achievement {
 
 const achievements: Achievement[] = [
   {
+    award: "Two-time Finalist",
+    event: "West Bengal Science and Technology Congress",
+    year: "2025",
+  },
+  {
+    award: "Finalist",
+    event: "SBH 2025",
+    year: "2025",
+  },
+  {
     award: "Best Paper Award",
     event: "ICSAA 2025",
     title: "Sustainable AI and Its Applications",
