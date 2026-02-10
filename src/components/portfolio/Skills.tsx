@@ -8,16 +8,16 @@ interface SkillCategory {
 
 const skillCategories: SkillCategory[] = [
   {
+    title: "Programming",
+    skills: ["Python", "Java", "C", "JavaScript", "SQL"],
+  },
+  {
+    title: "Web Technologies",
+    skills: ["React.js", "HTML", "CSS", "REST APIs"],
+  },
+  {
     title: "Analytics & AI",
     skills: ["Power BI", "Google Vertex AI"],
-  },
-  {
-    title: "Programming",
-    skills: ["Python", "SQL", "Java", "JavaScript"],
-  },
-  {
-    title: "Web Development",
-    skills: ["React.js", "TailwindCSS"],
   },
   {
     title: "Core CS",
@@ -25,7 +25,7 @@ const skillCategories: SkillCategory[] = [
   },
   {
     title: "Tools",
-    skills: ["Figma", "Canva", "ChatGPT", "Claude"],
+    skills: ["Git", "GitHub", "Figma", "Canva", "ChatGPT", "Claude"],
   },
 ];
 
@@ -115,7 +115,7 @@ const Skills = () => {
                 Soft Skills
               </h3>
               <ul className="space-y-3">
-                {["Data Interpretation", "Business Communication", "Problem Solving", "Team Collaboration"].map((skill) => (
+                {["Analytical Thinking", "Communication", "Team Collaboration", "Problem Solving"].map((skill) => (
                   <li key={skill} className="text-foreground text-lg">
                     {skill}
                   </li>

@@ -6,13 +6,13 @@ const About = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const lines = [
-    "Creative Computer Science undergraduate",
-    "with hands-on experience in AI,",
-    "full-stack development, and rapid prototyping",
-    "through hackathons.",
+    "Final-year Computer Science and Engineering",
+    "undergraduate with strong fundamentals in",
+    "software development, data structures, and databases.",
     "",
-    "Focused on building scalable, meaningful,",
-    "and data-driven systems."
+    "Experienced in building full-stack and AI-driven",
+    "applications through academic projects,",
+    "internships, and hackathons."
   ];
 
   return (
@@ -71,7 +71,7 @@ const About = () => {
                 Location
               </h3>
               <p className="text-foreground text-lg">
-                Murshidabad, India
+                Murshidabad, West Bengal, India
               </p>
             </div>
             <div>
@@ -79,7 +79,23 @@ const About = () => {
                 Focus Areas
               </h3>
               <p className="text-foreground text-lg">
-                AI Development • Full-Stack • Data Analysis
+                AI Development • Full-Stack • Data Analytics
+              </p>
+            </div>
+            <div>
+              <h3 className="text-muted-foreground text-sm uppercase tracking-[0.2em] mb-3">
+                Languages
+              </h3>
+              <p className="text-foreground text-lg">
+                English • Hindi • Bengali
+              </p>
+            </div>
+            <div>
+              <h3 className="text-muted-foreground text-sm uppercase tracking-[0.2em] mb-3">
+                Interests
+              </h3>
+              <p className="text-foreground text-lg">
+                Data Analytics • AI for Social Impact • Competitive Programming
               </p>
             </div>
           </motion.div>
