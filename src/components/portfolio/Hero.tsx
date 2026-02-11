@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Download } from "lucide-react";
+import { Download, ArrowRight } from "lucide-react";
 import roshniPhoto from "@/assets/roshni-photo.jpeg";
 import FloatingParticles from "./FloatingParticles";
 
@@ -28,15 +28,12 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Floating particles background */}
+    <section className="relative min-h-screen flex items-center overflow-hidden">
       <FloatingParticles />
-      
-      {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-card opacity-50" />
-      
+
       <div className="section-container relative z-10 py-20 md:py-0">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Text Content */}
           <motion.div
             variants={containerVariants}
@@ -44,39 +41,37 @@ const Hero = () => {
             animate="visible"
             className="order-2 lg:order-1"
           >
+            <motion.h2
+              variants={itemVariants}
+              className="font-serif text-4xl md:text-5xl lg:text-6xl text-foreground mb-2"
+            >
+              Hello<span className="text-primary">.</span>
+            </motion.h2>
+
             <motion.p
               variants={itemVariants}
-              className="text-muted-foreground text-sm uppercase tracking-[0.3em] mb-6"
+              className="text-xl md:text-2xl text-muted-foreground mb-1"
             >
-              Computer Science & Engineering
+              I'm Roshni
             </motion.p>
 
             <motion.h1
               variants={itemVariants}
-              className="font-serif text-5xl md:text-7xl lg:text-8xl text-foreground leading-[0.9] mb-8"
+              className="font-serif text-4xl md:text-5xl lg:text-6xl text-primary font-bold leading-tight mb-8"
             >
-              Roshni
-              <br />
-              <span className="text-primary">Hembrom</span>
+              AI & Full-Stack Developer
             </motion.h1>
 
             <motion.p
               variants={itemVariants}
-              className="text-xl md:text-2xl text-foreground/90 font-serif italic leading-relaxed mb-4 max-w-lg"
+              className="text-muted-foreground text-base md:text-lg max-w-md mb-10"
             >
               Designing intelligent systems where data, AI, and engineering converge.
             </motion.p>
 
-            <motion.p
-              variants={itemVariants}
-              className="text-muted-foreground text-base md:text-lg max-w-md"
-            >
-              I turn complex problems into scalable, data-driven solutions.
-            </motion.p>
-
             <motion.div
               variants={itemVariants}
-              className="mt-12 flex flex-wrap gap-6"
+              className="flex flex-wrap gap-4"
             >
               <a
                 href="#projects"
@@ -84,70 +79,53 @@ const Hero = () => {
                   e.preventDefault();
                   document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="group inline-flex items-center gap-3 text-foreground hover:text-primary transition-colors duration-300"
+                className="group inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-medium rounded transition-all duration-300 hover:opacity-90"
               >
-                <span className="underline-animation">View Work</span>
-                <svg
-                  className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </a>
-              <a
-                href="#contact"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
-                }}
-                className="text-muted-foreground hover:text-foreground transition-colors duration-300 underline-animation"
-              >
-                Get in Touch
+                <span>View Work</span>
+                <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
               </a>
               <a
                 href="/resume.pdf"
                 download
-                className="group inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 rounded"
+                className="group inline-flex items-center gap-2 px-6 py-3 border border-border text-foreground hover:border-primary hover:text-primary transition-all duration-300 rounded"
               >
                 <Download className="w-4 h-4" />
-                <span>Download Resume</span>
+                <span>My Resume</span>
               </a>
             </motion.div>
           </motion.div>
 
-          {/* Portrait Placeholder */}
+          {/* Circular Portrait with decorative arcs */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, x: 30 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.5, ease: [0.4, 0, 0.2, 1] }}
-            className="order-1 lg:order-2 relative"
+            className="order-1 lg:order-2 flex justify-center lg:justify-end"
           >
-            <div className="relative aspect-[3/4] max-w-md mx-auto lg:ml-auto group cursor-pointer">
-              {/* Decorative frame with hover animation */}
-              <div className="absolute -inset-4 border border-border/30 -z-10 transition-all duration-500 group-hover:border-primary/40 group-hover:-inset-5" />
-              <div className="absolute -inset-8 border border-border/20 -z-20 transition-all duration-700 group-hover:border-primary/20 group-hover:-inset-10" />
-              
-              {/* Actual photo with grayscale-to-color effect */}
-              <div className="w-full h-full relative overflow-hidden">
+            <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+              {/* Decorative rotating arc rings */}
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-[-16px] rounded-full border-2 border-primary/30 border-t-primary border-r-transparent border-b-transparent border-l-transparent"
+              />
+              <motion.div
+                animate={{ rotate: -360 }}
+                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-[-32px] rounded-full border border-primary/15 border-b-primary/40 border-t-transparent border-l-transparent border-r-transparent"
+              />
+
+              {/* Glow effect */}
+              <div className="absolute inset-0 rounded-full bg-primary/10 blur-2xl scale-110" />
+
+              {/* Photo */}
+              <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-border/50 group cursor-pointer">
                 <img
                   src={roshniPhoto}
                   alt="Roshni Hembrom"
                   className="w-full h-full object-cover object-center grayscale contrast-[1.05] transition-all duration-700 ease-out group-hover:grayscale-0 group-hover:scale-105"
                 />
-                
-                {/* Subtle overlay for depth - fades on hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent transition-opacity duration-500 group-hover:opacity-60" />
-                
-                {/* Primary color wash overlay - reveals on hover */}
-                <div className="absolute inset-0 bg-primary/0 mix-blend-overlay transition-all duration-500 group-hover:bg-primary/10" />
-                
-                {/* Corner accent with animation */}
-                <div className="absolute top-0 right-0 w-16 h-16 bg-primary/20 transition-all duration-500 group-hover:w-20 group-hover:h-20 group-hover:bg-primary/30" />
-                
-                {/* Bottom left corner accent - appears on hover */}
-                <div className="absolute bottom-0 left-0 w-0 h-0 bg-primary/20 transition-all duration-500 group-hover:w-12 group-hover:h-12" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent transition-opacity duration-500 group-hover:opacity-50" />
               </div>
             </div>
           </motion.div>
