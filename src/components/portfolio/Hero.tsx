@@ -102,8 +102,8 @@ const Hero = () => {
             transition={{ duration: 1, delay: 0.5, ease: [0.4, 0, 0.2, 1] }}
             className="order-1 lg:order-2 flex justify-center lg:justify-end"
           >
-            <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 group cursor-pointer">
-              {/* SVG rotating arc rings */}
+            <div className="relative w-72 h-72 md:w-88 md:h-88 lg:w-[420px] lg:h-[420px] group cursor-pointer">
+              {/* SVG rotating arc rings - rounded rect */}
               <motion.svg
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
@@ -111,8 +111,8 @@ const Hero = () => {
                 viewBox="0 0 200 200"
                 fill="none"
               >
-                <circle cx="100" cy="100" r="96" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeDasharray="80 40 20 40" strokeLinecap="round" opacity="0.6" />
-                <circle cx="100" cy="100" r="96" stroke="hsl(var(--primary))" strokeWidth="3" strokeDasharray="12 188" strokeLinecap="round" opacity="1" />
+                <rect x="4" y="4" width="192" height="192" rx="32" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeDasharray="80 40 20 40" strokeLinecap="round" opacity="0.6" />
+                <rect x="4" y="4" width="192" height="192" rx="32" stroke="hsl(var(--primary))" strokeWidth="3" strokeDasharray="12 188" strokeLinecap="round" opacity="1" />
               </motion.svg>
 
               <motion.svg
@@ -122,8 +122,8 @@ const Hero = () => {
                 viewBox="0 0 200 200"
                 fill="none"
               >
-                <circle cx="100" cy="100" r="96" stroke="hsl(var(--primary))" strokeWidth="1" strokeDasharray="50 30 10 30 5 75" strokeLinecap="round" opacity="0.3" />
-                <circle cx="100" cy="100" r="96" stroke="hsl(var(--primary))" strokeWidth="2.5" strokeDasharray="8 192" strokeLinecap="round" opacity="0.7" />
+                <rect x="4" y="4" width="192" height="192" rx="36" stroke="hsl(var(--primary))" strokeWidth="1" strokeDasharray="50 30 10 30 5 75" strokeLinecap="round" opacity="0.3" />
+                <rect x="4" y="4" width="192" height="192" rx="36" stroke="hsl(var(--primary))" strokeWidth="2.5" strokeDasharray="8 192" strokeLinecap="round" opacity="0.7" />
               </motion.svg>
 
               {/* Small accent dots on the arcs */}
@@ -139,10 +139,10 @@ const Hero = () => {
               </motion.svg>
 
               {/* Pulsing glow on hover */}
-              <div className="absolute inset-0 rounded-full bg-primary/0 blur-3xl scale-125 transition-all duration-500 group-hover:bg-primary/20 group-hover:animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
+              <div className="absolute inset-0 rounded-2xl bg-primary/0 blur-3xl scale-125 transition-all duration-500 group-hover:bg-primary/20 group-hover:animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
 
               {/* Photo */}
-              <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-border/50 transition-all duration-500 group-hover:border-primary/50 group-hover:shadow-[0_0_30px_hsl(var(--primary)/0.3)]">
+              <div className="relative w-full h-full rounded-2xl overflow-hidden border-2 border-border/50 transition-all duration-500 group-hover:border-primary/50 group-hover:shadow-[0_0_30px_hsl(var(--primary)/0.3)]">
                 <img
                   src={roshniPhoto}
                   alt="Roshni Hembrom"
