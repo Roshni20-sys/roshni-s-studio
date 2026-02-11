@@ -103,17 +103,40 @@ const Hero = () => {
             className="order-1 lg:order-2 flex justify-center lg:justify-end"
           >
             <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
-              {/* Decorative rotating arc rings */}
-              <motion.div
+              {/* SVG rotating arc rings */}
+              <motion.svg
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-[-16px] rounded-full border-2 border-primary/30 border-t-primary border-r-transparent border-b-transparent border-l-transparent"
-              />
-              <motion.div
+                className="absolute inset-[-20px] w-[calc(100%+40px)] h-[calc(100%+40px)]"
+                viewBox="0 0 200 200"
+                fill="none"
+              >
+                <circle cx="100" cy="100" r="96" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeDasharray="80 40 20 40" strokeLinecap="round" opacity="0.6" />
+                <circle cx="100" cy="100" r="96" stroke="hsl(var(--primary))" strokeWidth="3" strokeDasharray="12 188" strokeLinecap="round" opacity="1" />
+              </motion.svg>
+
+              <motion.svg
                 animate={{ rotate: -360 }}
-                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-[-32px] rounded-full border border-primary/15 border-b-primary/40 border-t-transparent border-l-transparent border-r-transparent"
-              />
+                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-[-40px] w-[calc(100%+80px)] h-[calc(100%+80px)]"
+                viewBox="0 0 200 200"
+                fill="none"
+              >
+                <circle cx="100" cy="100" r="96" stroke="hsl(var(--primary))" strokeWidth="1" strokeDasharray="50 30 10 30 5 75" strokeLinecap="round" opacity="0.3" />
+                <circle cx="100" cy="100" r="96" stroke="hsl(var(--primary))" strokeWidth="2.5" strokeDasharray="8 192" strokeLinecap="round" opacity="0.7" />
+              </motion.svg>
+
+              {/* Small accent dots on the arcs */}
+              <motion.svg
+                animate={{ rotate: 360 }}
+                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-[-20px] w-[calc(100%+40px)] h-[calc(100%+40px)]"
+                viewBox="0 0 200 200"
+                fill="none"
+              >
+                <circle cx="100" cy="4" r="3" fill="hsl(var(--primary))" opacity="0.9" />
+                <circle cx="196" cy="100" r="2" fill="hsl(var(--primary))" opacity="0.5" />
+              </motion.svg>
 
               {/* Glow effect */}
               <div className="absolute inset-0 rounded-full bg-primary/10 blur-2xl scale-110" />
