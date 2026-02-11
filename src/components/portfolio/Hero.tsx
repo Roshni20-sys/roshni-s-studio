@@ -102,7 +102,7 @@ const Hero = () => {
             transition={{ duration: 1, delay: 0.5, ease: [0.4, 0, 0.2, 1] }}
             className="order-1 lg:order-2 flex justify-center lg:justify-end"
           >
-            <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+            <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 group cursor-pointer">
               {/* SVG rotating arc rings */}
               <motion.svg
                 animate={{ rotate: 360 }}
@@ -138,11 +138,11 @@ const Hero = () => {
                 <circle cx="196" cy="100" r="2" fill="hsl(var(--primary))" opacity="0.5" />
               </motion.svg>
 
-              {/* Glow effect */}
-              <div className="absolute inset-0 rounded-full bg-primary/10 blur-2xl scale-110" />
+              {/* Pulsing glow on hover */}
+              <div className="absolute inset-0 rounded-full bg-primary/0 blur-3xl scale-125 transition-all duration-500 group-hover:bg-primary/20 group-hover:animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
 
               {/* Photo */}
-              <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-border/50 group cursor-pointer">
+              <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-border/50 transition-all duration-500 group-hover:border-primary/50 group-hover:shadow-[0_0_30px_hsl(var(--primary)/0.3)]">
                 <img
                   src={roshniPhoto}
                   alt="Roshni Hembrom"
