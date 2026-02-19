@@ -12,12 +12,14 @@ import CursorFollower from "@/components/portfolio/CursorFollower";
 import Preloader from "@/components/portfolio/Preloader";
 import SectionDivider from "@/components/portfolio/SectionDivider";
 import ScrollReveal from "@/components/portfolio/ScrollReveal";
+import ScrollProgress from "@/components/portfolio/ScrollProgress";
 
 const Index = () => {
   return (
     <>
       <Preloader />
       <CursorFollower />
+      <ScrollProgress />
       <main className="bg-background text-foreground overflow-x-hidden cursor-none md:cursor-none">
         <Navbar />
         <Hero />
