@@ -1,0 +1,43 @@
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+
+interface SectionDividerProps {
+  label?: string;
+}
+
+const SectionDivider = ({ label }: SectionDividerProps) => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const lineScale = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
+  const labelY = useTransform(scrollYProgress, [0.1, 0.5], [20, 0]);
+  const labelOpacity = useTransform(scrollYProgress, [0.1, 0.4], [0, 1]);
+
+  return (
+    <div ref={ref} className="relative py-8 overflow-hidden">
+      <div className="section-container flex items-center gap-6">
+        <motion.div
+          style={{ scaleX: lineScale }}
+          className="flex-1 h-px bg-gradient-to-r from-transparent via-border to-transparent origin-left"
+        />
+        {label && (
+          <motion.span
+            style={{ y: labelY, opacity: labelOpacity }}
+            className="text-xs text-muted-foreground/50 uppercase tracking-[0.4em] whitespace-nowrap font-medium"
+          >
+            {label}
+          </motion.span>
+        )}
+        <motion.div
+          style={{ scaleX: lineScale }}
+          className="flex-1 h-px bg-gradient-to-r from-transparent via-border to-transparent origin-right"
+        />
+      </div>
+    </div>
+  );
+};
+
+export default SectionDivider;
