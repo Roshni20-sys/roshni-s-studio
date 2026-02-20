@@ -111,7 +111,7 @@ const MagneticPhoto = () => {
       </motion.svg>
 
       {/* Photo container */}
-      <div className="relative w-72 h-80 md:w-80 md:h-[360px] lg:w-[380px] lg:h-[440px] rounded-2xl overflow-hidden border border-border/30 transition-all duration-700 group-hover:border-primary/40 group-hover:shadow-[0_0_50px_hsl(var(--primary)/0.2)]">
+      <div className="relative w-52 h-60 md:w-80 md:h-[360px] lg:w-[380px] lg:h-[440px] rounded-2xl overflow-hidden border border-border/30 transition-all duration-700 group-hover:border-primary/40 group-hover:shadow-[0_0_50px_hsl(var(--primary)/0.2)]">
         <img
           src={roshniPhoto}
           alt="Roshni Hembrom — AI & Full-Stack Developer"
@@ -167,8 +167,8 @@ const Hero = () => {
         <div className="absolute left-[83.33%] top-0 bottom-0 w-px bg-foreground" />
       </div>
 
-      <div className="section-container relative z-10 py-20 md:py-0">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <div className="section-container relative z-10 py-10 md:py-0">
+        <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 items-center">
           {/* Text Content — 7 columns */}
           <div className="lg:col-span-7 order-2 lg:order-1">
             {/* Eyebrow */}
@@ -176,7 +176,7 @@ const Hero = () => {
               initial={{ opacity: 0, width: 0 }}
               animate={{ opacity: 1, width: "auto" }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="flex items-center gap-4 mb-8"
+              className="flex items-center gap-4 mb-4 md:mb-8"
             >
               <div className="h-px w-12 bg-primary" />
               <span className="text-xs uppercase tracking-[0.35em] text-muted-foreground font-medium">
@@ -185,23 +185,23 @@ const Hero = () => {
             </motion.div>
 
             {/* Name — massive editorial type */}
-            <div className="mb-6">
+            <div className="mb-3 md:mb-6">
               <h1 className="font-serif leading-[0.9] tracking-tight">
-                <TextReveal delay={0.3} className="text-5xl md:text-7xl lg:text-8xl xl:text-[6.5rem] text-foreground">
+                <TextReveal delay={0.3} className="text-4xl md:text-7xl lg:text-8xl xl:text-[6.5rem] text-foreground">
                   Roshni
                 </TextReveal>
                 <br />
-                <TextReveal delay={0.45} className="text-5xl md:text-7xl lg:text-8xl xl:text-[6.5rem] text-foreground">
+                <TextReveal delay={0.45} className="text-4xl md:text-7xl lg:text-8xl xl:text-[6.5rem] text-foreground">
                   Hembrom
                 </TextReveal>
-                <TextReveal delay={0.6} className="text-5xl md:text-7xl lg:text-8xl xl:text-[6.5rem] text-primary">
+                <TextReveal delay={0.6} className="text-4xl md:text-7xl lg:text-8xl xl:text-[6.5rem] text-primary">
                   .
                 </TextReveal>
               </h1>
             </div>
 
             {/* Rotating role */}
-            <div className="h-9 mb-8 overflow-hidden relative">
+            <div className="h-9 mb-4 md:mb-8 overflow-hidden relative">
               <motion.div
                 key={count}
                 initial={{ y: 30, opacity: 0 }}
@@ -222,7 +222,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.9 }}
-              className="text-muted-foreground text-base md:text-lg lg:text-xl max-w-lg mb-12 leading-relaxed"
+              className="text-muted-foreground text-sm md:text-lg lg:text-xl max-w-lg mb-6 md:mb-12 leading-relaxed"
             >
               Crafting intelligent systems at the intersection of data science,
               artificial intelligence, and thoughtful engineering.
