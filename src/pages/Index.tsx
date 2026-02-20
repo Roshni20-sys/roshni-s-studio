@@ -13,6 +13,7 @@ import Preloader from "@/components/portfolio/Preloader";
 import SectionDivider from "@/components/portfolio/SectionDivider";
 import ScrollReveal from "@/components/portfolio/ScrollReveal";
 import ScrollProgress from "@/components/portfolio/ScrollProgress";
+import Chatbot from "@/components/portfolio/Chatbot";
 
 const Index = () => {
   return (
@@ -60,6 +61,7 @@ const Index = () => {
         </ScrollReveal>
 
         <ScrollToTop />
+        <Chatbot />
       </main>
     </>
   );
