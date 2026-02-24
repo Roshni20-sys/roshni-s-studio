@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, X, Send, Bot, User } from "lucide-react";
+import { MessageCircle, X, Send, Bot, User, RotateCcw } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 
 type Message = { role: "user" | "assistant"; content: string };
@@ -85,12 +85,22 @@ const Chatbot = () => {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const INITIAL_MESSAGE: Message = {
+    role: "assistant",
+    content: "Hi! 👋 I'm Roshni's AI assistant. Ask me anything about her skills, projects, experience, or how to get in touch!",
+  };
 
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
   }, [messages]);
+
+  const resetChat = () => {
+    setMessages([INITIAL_MESSAGE]);
+    setInput("");
+    setIsLoading(false);
+  };
 
   const send = async () => {
     const text = input.trim();
@@ -172,14 +182,26 @@ const Chatbot = () => {
           >
             {/* Header */}
             <div className="px-5 py-4 border-b border-border/30 bg-card/80 backdrop-blur-sm">
-              <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center">
-                  <Bot className="w-5 h-5 text-primary" />
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Bot className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-semibold text-foreground">Roshni's Assistant</h3>
+                    <p className="text-[11px] text-muted-foreground">Powered by AI</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-sm font-semibold text-foreground">Roshni's Assistant</h3>
-                  <p className="text-[11px] text-muted-foreground">Powered by AI</p>
-                </div>
+                <motion.button
+                  onClick={resetChat}
+                  whileHover={{ rotate: -180 }}
+                  transition={{ duration: 0.4 }}
+                  className="w-8 h-8 rounded-lg hover:bg-muted/50 flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+                  aria-label="Reset conversation"
+                  title="Reset conversation"
+                >
+                  <RotateCcw className="w-4 h-4" />
+                </motion.button>
               </div>
             </div>
 
@@ -218,18 +240,32 @@ const Chatbot = () => {
                 </div>
               ))}
               {isLoading && messages[messages.length - 1]?.role !== "assistant" && (
-                <div className="flex gap-2.5">
+                <motion.div
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="flex gap-2.5"
+                >
                   <div className="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                     <Bot className="w-3.5 h-3.5 text-primary" />
                   </div>
                   <div className="bg-muted/50 px-4 py-3 rounded-2xl rounded-bl-md">
-                    <div className="flex gap-1">
-                      <span className="w-2 h-2 bg-muted-foreground/40 rounded-full animate-bounce [animation-delay:0ms]" />
-                      <span className="w-2 h-2 bg-muted-foreground/40 rounded-full animate-bounce [animation-delay:150ms]" />
-                      <span className="w-2 h-2 bg-muted-foreground/40 rounded-full animate-bounce [animation-delay:300ms]" />
+                    <div className="flex items-center gap-1.5">
+                      {[0, 1, 2].map((i) => (
+                        <motion.span
+                          key={i}
+                          className="w-2 h-2 bg-primary/60 rounded-full"
+                          animate={{ y: [0, -6, 0], opacity: [0.4, 1, 0.4] }}
+                          transition={{
+                            duration: 0.8,
+                            repeat: Infinity,
+                            delay: i * 0.15,
+                            ease: "easeInOut",
+                          }}
+                        />
+                      ))}
                     </div>
                   </div>
-                </div>
+                </motion.div>
               )}
             </div>
 
