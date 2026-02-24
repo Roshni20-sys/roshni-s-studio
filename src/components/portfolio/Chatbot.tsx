@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, X, Send, Bot, User, RotateCcw } from "lucide-react";
+import { MessageCircle, X, Send, Bot, User, RotateCcw, Code, FolderOpen, Mail, Award, Briefcase } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 
 type Message = { role: "user" | "assistant"; content: string };
@@ -72,6 +72,13 @@ async function streamChat({
   }
   onDone();
 }
+const QUICK_REPLIES = [
+  { label: "Skills", query: "What are Roshni's technical skills?", icon: Code },
+  { label: "Projects", query: "Tell me about Roshni's projects", icon: FolderOpen },
+  { label: "Experience", query: "What is Roshni's work experience?", icon: Briefcase },
+  { label: "Achievements", query: "What are Roshni's achievements?", icon: Award },
+  { label: "Contact", query: "How can I contact Roshni?", icon: Mail },
+];
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -100,6 +107,50 @@ const Chatbot = () => {
     setMessages([INITIAL_MESSAGE]);
     setInput("");
     setIsLoading(false);
+  };
+
+  const sendQuickReply = (query: string) => {
+    setInput(query);
+    // Use setTimeout to let state update, then trigger send
+    setTimeout(() => {
+      const userMsg: Message = { role: "user", content: query };
+      setMessages((prev) => [...prev, userMsg]);
+      setIsLoading(true);
+
+      let assistantSoFar = "";
+      const upsert = (chunk: string) => {
+        assistantSoFar += chunk;
+        setMessages((prev) => {
+          const last = prev[prev.length - 1];
+          if (last?.role === "assistant" && prev.length > 1 && prev[prev.length - 2]?.content === query) {
+            return prev.map((m, i) =>
+              i === prev.length - 1 ? { ...m, content: assistantSoFar } : m
+            );
+          }
+          return [...prev, { role: "assistant", content: assistantSoFar }];
+        });
+      };
+
+      setInput("");
+      streamChat({
+        messages: [...messages, userMsg],
+        onDelta: upsert,
+        onDone: () => setIsLoading(false),
+        onError: (msg) => {
+          setMessages((prev) => [
+            ...prev,
+            { role: "assistant", content: `⚠️ ${msg}` },
+          ]);
+          setIsLoading(false);
+        },
+      }).catch(() => {
+        setMessages((prev) => [
+          ...prev,
+          { role: "assistant", content: "⚠️ Connection error. Please try again." },
+        ]);
+        setIsLoading(false);
+      });
+    }, 0);
   };
 
   const send = async () => {
@@ -239,6 +290,29 @@ const Chatbot = () => {
                   )}
                 </div>
               ))}
+              {/* Quick reply chips - show only when just the initial message */}
+              {messages.length === 1 && !isLoading && (
+                <motion.div
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.2 }}
+                  className="flex flex-wrap gap-2 pl-9"
+                >
+                  {QUICK_REPLIES.map((qr, i) => (
+                    <motion.button
+                      key={qr.label}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.2, delay: 0.3 + i * 0.05 }}
+                      onClick={() => sendQuickReply(qr.query)}
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/5 text-xs text-primary hover:bg-primary/15 hover:border-primary/50 transition-all cursor-pointer"
+                    >
+                      <qr.icon className="w-3 h-3" />
+                      {qr.label}
+                    </motion.button>
+                  ))}
+                </motion.div>
+              )}
               {isLoading && messages[messages.length - 1]?.role !== "assistant" && (
                 <motion.div
                   initial={{ opacity: 0, y: 8 }}
