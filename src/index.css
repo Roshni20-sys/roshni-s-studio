@@ -187,4 +187,27 @@
   .hover-glow:hover {
     box-shadow: 0 0 20px hsl(var(--primary) / 0.15);
   }
+
+  /* Hero gradient text shimmer */
+  .hero-gradient-text {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--primary)) 0%,
+      hsl(var(--secondary)) 40%,
+      hsl(var(--foreground)) 80%,
+      hsl(var(--foreground)) 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-settle 2.5s ease-out 0.8s forwards;
+    background-position: 0% 50%;
+  }
+
+  @keyframes gradient-settle {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 200% 50%; }
+  }
 }

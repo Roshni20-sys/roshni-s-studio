@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 
 interface Project {
   id: string;
@@ -10,6 +10,8 @@ interface Project {
   outcome: string;
   tech: string[];
   features: string[];
+  category: string;
+  gradient: string;
 }
 
 const projects: Project[] = [
@@ -22,6 +24,8 @@ const projects: Project[] = [
     outcome: "Reduced missed deliveries and improved logistics KPIs through intelligent route optimization and SMS-based rescheduling.",
     tech: ["AI/ML", "Route Optimization", "SMS Integration"],
     features: ["Personalized delivery slots", "Weather-aware scheduling", "Real-time route optimization", "SMS rescheduling"],
+    category: "AI",
+    gradient: "from-primary/20 to-primary/5",
   },
   {
     id: "weather-app",
@@ -32,6 +36,8 @@ const projects: Project[] = [
     outcome: "Delivered real-time forecasts with a 5-day outlook and condition-responsive interface.",
     tech: ["React.js", "TailwindCSS", "OpenWeather API"],
     features: ["Real-time data", "5-day forecast", "Dynamic weather UI", "Responsive design"],
+    category: "Web",
+    gradient: "from-secondary/20 to-secondary/5",
   },
   {
     id: "calculator",
@@ -42,99 +48,79 @@ const projects: Project[] = [
     outcome: "A reliable calculator with proper state handling and responsive, accessible design.",
     tech: ["HTML", "CSS", "JavaScript"],
     features: ["Arithmetic operations", "State management", "Clean UI", "Accessibility"],
+    category: "Web",
+    gradient: "from-muted-foreground/10 to-muted/20",
   },
 ];
+
+const categories = ["All", "AI", "Web"];
 
 const ProjectCard = ({ project, index }: { project: Project; index: number }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
-  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <motion.article
       ref={ref}
       initial={{ opacity: 0, y: 60 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{
-        duration: 0.8,
-        delay: index * 0.15,
-        ease: [0.4, 0, 0.2, 1],
-      }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      transition={{ duration: 0.8, delay: index * 0.15, ease: [0.4, 0, 0.2, 1] }}
+      layout
       className="group relative"
     >
-      <div className="relative bg-card border border-border/50 p-8 md:p-12 transition-all duration-500 hover:border-primary/30 hover:bg-muted/30">
-        {/* Project number */}
-        <span className="absolute top-6 right-6 text-7xl md:text-8xl font-serif text-muted/30 select-none">
-          {String(index + 1).padStart(2, "0")}
-        </span>
+      <div className="relative bg-card border border-border/50 overflow-hidden transition-all duration-500 hover:border-primary/30 hover:bg-muted/30">
+        {/* Gradient header strip */}
+        <div className={`h-1.5 bg-gradient-to-r ${project.gradient}`} />
 
-        {/* Header */}
-        <div className="relative z-10 mb-8">
-          <h3 className="font-serif text-3xl md:text-4xl text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
-            {project.title}
-          </h3>
-          <p className="text-secondary text-lg">{project.subtitle}</p>
-        </div>
+        <div className="p-8 md:p-12">
+          {/* Project number */}
+          <span className="absolute top-8 right-8 text-7xl md:text-8xl font-serif text-muted/30 select-none leading-none">
+            {String(index + 1).padStart(2, "0")}
+          </span>
 
-        {/* Problem → Approach → Outcome */}
-        <div className="relative z-10 space-y-6 mb-8">
-          <div>
-            <h4 className="text-muted-foreground text-xs uppercase tracking-[0.2em] mb-2">
-              Problem
-            </h4>
-            <p className="text-foreground/80 leading-relaxed">{project.problem}</p>
+          {/* Header */}
+          <div className="relative z-10 mb-8">
+            <h3 className="font-serif text-3xl md:text-4xl text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+              {project.title}
+            </h3>
+            <p className="text-secondary text-lg">{project.subtitle}</p>
           </div>
-          <div>
-            <h4 className="text-muted-foreground text-xs uppercase tracking-[0.2em] mb-2">
-              Approach
-            </h4>
-            <p className="text-foreground/80 leading-relaxed">{project.approach}</p>
-          </div>
-          <div>
-            <h4 className="text-muted-foreground text-xs uppercase tracking-[0.2em] mb-2">
-              Outcome
-            </h4>
-            <p className="text-foreground/80 leading-relaxed">{project.outcome}</p>
-          </div>
-        </div>
 
-        {/* Features */}
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: isHovered ? 1 : 0, height: isHovered ? "auto" : 0 }}
-          transition={{ duration: 0.3 }}
-          className="overflow-hidden"
-        >
+          {/* Problem → Approach → Outcome */}
+          <div className="relative z-10 space-y-6 mb-8">
+            {[
+              { label: "Problem", text: project.problem },
+              { label: "Approach", text: project.approach },
+              { label: "Outcome", text: project.outcome },
+            ].map(({ label, text }) => (
+              <div key={label}>
+                <h4 className="text-muted-foreground text-xs uppercase tracking-[0.2em] mb-2">{label}</h4>
+                <p className="text-foreground/80 leading-relaxed">{text}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Features — always visible */}
           <div className="flex flex-wrap gap-2 mb-6">
             {project.features.map((feature) => (
-              <span
-                key={feature}
-                className="text-muted-foreground text-sm border border-border/50 px-3 py-1"
-              >
+              <span key={feature} className="text-muted-foreground text-sm border border-border/50 px-3 py-1 rounded-sm">
                 {feature}
               </span>
             ))}
           </div>
-        </motion.div>
 
-        {/* Tech stack */}
-        <div className="relative z-10 flex flex-wrap gap-3">
-          {project.tech.map((tech) => (
-            <span
-              key={tech}
-              className="text-primary text-sm font-medium"
-            >
-              {tech}
-            </span>
-          ))}
+          {/* Tech stack */}
+          <div className="relative z-10 flex flex-wrap gap-3">
+            {project.tech.map((tech) => (
+              <span key={tech} className="text-primary text-sm font-medium">{tech}</span>
+            ))}
+          </div>
         </div>
 
         {/* Animated underline */}
         <motion.div
           initial={{ scaleX: 0 }}
-          animate={{ scaleX: isHovered ? 1 : 0 }}
+          whileHover={{ scaleX: 1 }}
           transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
           className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary origin-left"
         />
@@ -144,6 +130,12 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
 };
 
 const Projects = () => {
+  const [activeCategory, setActiveCategory] = useState("All");
+
+  const filtered = activeCategory === "All"
+    ? projects
+    : projects.filter((p) => p.category === activeCategory);
+
   return (
     <section id="projects" className="py-32 md:py-40 relative grain-overlay">
       <div className="section-container">
@@ -153,21 +145,44 @@ const Projects = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mb-16"
+          className="mb-12"
         >
-          <p className="text-primary text-sm uppercase tracking-[0.3em] mb-4">
-            Projects
-          </p>
+          <p className="text-primary text-sm uppercase tracking-[0.3em] mb-4">Projects</p>
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-foreground max-w-2xl">
             Selected works that solve real problems
           </h2>
         </motion.div>
 
+        {/* Category tabs */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex gap-2 mb-12"
+        >
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`px-5 py-2 text-sm uppercase tracking-[0.15em] rounded-full border transition-all duration-300 ${
+                activeCategory === cat
+                  ? "bg-primary text-primary-foreground border-primary"
+                  : "border-border/50 text-muted-foreground hover:border-primary/50 hover:text-foreground"
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </motion.div>
+
         {/* Projects grid */}
         <div className="space-y-8">
-          {projects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
-          ))}
+          <AnimatePresence mode="popLayout">
+            {filtered.map((project, index) => (
+              <ProjectCard key={project.id} project={project} index={index} />
+            ))}
+          </AnimatePresence>
         </div>
       </div>
     </section>
